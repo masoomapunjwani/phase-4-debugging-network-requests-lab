@@ -63,11 +63,22 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+  Tried adding a toy and a ``500 (Internal Server Error`` popped up. > ``exception
+: <NameError: uninitialized constant ToysController::Toys>``
+Changed the classname from plural tto singular.
 
 - Update the number of likes for a toy
 
   - How I debugged:
+  Clicked the button and got an error: ``Unhandled Rejection (SyntaxError): Unexpected end of JSON input``. This means data transmitted isn't eing parsed as JSON.
+  Added a JSON parser to its controller.
+
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+  Clicked the Donate button and a ``404 Not Found`` error popped. Checked the Network on Chrome DevTools. ``exception
+: 
+"<ActionController::RoutingError: No route matches [DELETE] \"/toys/8\">"
+status: 404
+traces``. I added a destroy resource to the routes file.
